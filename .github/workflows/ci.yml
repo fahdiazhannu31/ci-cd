@@ -26,6 +26,9 @@ jobs:
           composer install
           composer require --dev phpunit/phpunit
 
+      - name: List files
+        run: ls -la
+
       - name: Run PHPUnit tests
         run: |
           ./vendor/bin/phpunit --configuration phpunit.xml
