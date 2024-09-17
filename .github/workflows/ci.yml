@@ -28,7 +28,7 @@ jobs:
 
       - name: Run PHPUnit tests
         run: |
-          ./vendor/bin/phpunit --configuration phpunit.xml --colors=always
+          ./vendor/bin/phpunit --configuration phpunit.xml
 
       - name: Validate Composer configuration
         run: composer validate
