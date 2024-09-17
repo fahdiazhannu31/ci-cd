@@ -2,7 +2,7 @@
 <phpunit
 >
     <testsuites>
-        <testsuite name="Application Test Suite">
+        <testsuite name="PHP Test">
             <directory>./</directory>
         </testsuite>
     </testsuites>
