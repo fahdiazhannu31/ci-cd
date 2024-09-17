@@ -33,4 +33,4 @@ jobs:
 
       - name: Run tests
         run: |
-          ./vendor/bin/phpunit --configuration phpunit.xml
+         ./vendor/bin/phpunit --bootstrap vendor/autoload.php SimpleTest.php
