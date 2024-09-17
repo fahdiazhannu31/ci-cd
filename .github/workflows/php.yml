@@ -15,8 +15,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]  # List of OSes to test against
-        php: [7.4, 8.0]                      # Specify PHP versions to test against
+        os: [ubuntu-latest, windows-latest]
+        php: [7.4, 8.0]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -28,16 +28,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          if [ ${{ runner.os }} == 'Linux' ]; then
-            composer install
-          elif [ ${{ runner.os }} == 'Windows' ]; then
-            composer install
-          fi
+          composer install
 
       - name: Run tests
         run: |
-          if [ ${{ runner.os }} == 'Linux' ]; then
-            ./vendor/bin/phpunit --configuration phpunit.xml
-          elif [ ${{ runner.os }} == 'Windows' ]; then
-            .\vendor\bin\phpunit --configuration phpunit.xml
-          fi
+          ./vendor/bin/phpunit --configuration phpunit.xml
