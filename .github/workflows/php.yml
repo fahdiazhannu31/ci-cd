@@ -1,0 +1,43 @@
+name: PHP CI Workflow
+
+on:
+  push:
+    branches:
+      - fitur-a
+      - fitur-b
+  pull_request:
+    branches:
+      - fitur-a
+      - fitur-b
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]  # List of OSes to test against
+        php: [7.4, 8.0]                      # Specify PHP versions to test against
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+
+      - name: Install dependencies
+        run: |
+          if [ ${{ runner.os }} == 'Linux' ]; then
+            composer install
+          elif [ ${{ runner.os }} == 'Windows' ]; then
+            composer install
+          fi
+
+      - name: Run tests
+        run: |
+          if [ ${{ runner.os }} == 'Linux' ]; then
+            ./vendor/bin/phpunit --configuration phpunit.xml
+          elif [ ${{ runner.os }} == 'Windows' ]; then
+            .\vendor\bin\phpunit --configuration phpunit.xml
+          fi
