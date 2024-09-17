@@ -1,4 +1,7 @@
 {
+    "name": "mycompany/myproject",
+    "description": "A brief description of what my project does.",
+    "type": "project",
     "require-dev": {
         "phpunit/phpunit": "^10.5"
     }
