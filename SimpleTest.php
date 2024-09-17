@@ -20,6 +20,6 @@ class SimpleTest extends TestCase
         $WordCount = $Wc->countWords($TestSentence);
 
         // Kita assert equal, ekspektasi nya harus 4, jika benar berarti Wordcount berfungsi dengan baik.
-        $this->assertEquals(2, $WordCount); 
+        $this->assertEquals(4, $WordCount); 
     }
 }
